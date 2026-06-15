@@ -93,7 +93,9 @@
   .tag .what{ color:#9aa0a6; font-size:.74rem; margin-top:12px; line-height:1.4; }
 
   /* lightbox */
-  #box{ position:fixed; inset:0; background:rgba(20,16,11,.84); display:none; align-items:center; justify-content:center;
+  /* Fully opaque (not translucent): the other tags must not show through, or the
+     camera may read a faint background price instead of the enlarged one. */
+  #box{ position:fixed; inset:0; background:#14100B; display:none; align-items:center; justify-content:center;
         padding:24px; z-index:80; }
   #box.open{ display:flex; }
   #box .tag{ cursor:default; width:min(94vw,640px); padding:8vh 24px; }
