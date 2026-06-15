@@ -66,7 +66,8 @@
 
   /* store context band */
   .scenes{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:36px; }
-  .scenes figure{ margin:0; border-radius:18px; overflow:hidden; box-shadow:var(--inset), 0 18px 36px -22px rgba(34,30,24,.4); position:relative; }
+  .scenes figure{ margin:0; border-radius:18px; overflow:hidden; box-shadow:var(--inset), 0 18px 36px -22px rgba(34,30,24,.4); position:relative; cursor:pointer; transition:transform .14s ease; }
+  .scenes figure:hover{ transform:translateY(-3px); }
   .scenes img{ width:100%; aspect-ratio:16/9; object-fit:cover; }
   .scenes figcaption{ position:absolute; left:12px; bottom:12px; background:rgba(20,16,11,.62);
                       color:#fff; font-size:12.5px; font-weight:600; padding:6px 11px; border-radius:999px; backdrop-filter:blur(6px); }
@@ -98,6 +99,8 @@
   #box .tag .price.long{ font-size:min(13vw,92px); }
   #box .tag .unit{ font-size:1.3rem; margin-top:14px; }
   #box .tag .what{ display:none; }
+  #box .bigimg{ width:auto; max-width:min(94vw,1100px); max-height:86vh; border-radius:18px;
+                box-shadow:0 24px 60px -20px rgba(0,0,0,.6); }
   #box .close{ position:fixed; top:18px; right:22px; color:#fff; font-size:2rem; line-height:1; }
 
   footer.site{ border-top:1px solid var(--line); padding:36px 0 48px; color:var(--faint); font-size:13.5px; }
@@ -179,12 +182,18 @@
 <script>
   var box = document.getElementById('box');
   var boxContent = document.getElementById('boxContent');
-  document.getElementById('grid').addEventListener('click', function (e) {
-    var tag = e.target.closest('.tag');
-    if (!tag) return;
-    boxContent.innerHTML = tag.outerHTML;
+  function openBox(html) {
+    boxContent.innerHTML = html;
     box.classList.add('open');
     box.setAttribute('aria-hidden', 'false');
+  }
+  document.getElementById('grid').addEventListener('click', function (e) {
+    var tag = e.target.closest('.tag');
+    if (tag) openBox(tag.outerHTML);
+  });
+  document.querySelector('.scenes').addEventListener('click', function (e) {
+    var img = e.target.closest('figure')?.querySelector('img');
+    if (img) openBox('<img class="bigimg" src="' + img.getAttribute('src') + '" alt="">');
   });
   function closeBox(e) { if (e) e.preventDefault(); box.classList.remove('open'); box.setAttribute('aria-hidden', 'true'); }
   document.getElementById('close').addEventListener('click', closeBox);
