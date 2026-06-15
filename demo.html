@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prisio — Sample price tags (App Review)</title>
+<meta name="description" content="Sample price tags for testing Prisio without going to a store. Tap a tag to enlarge it, then point the app's camera at it." />
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#FBF6EE" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23EC6A2C'/%3E%3Cg fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M9 12V10a1 1 0 0 1 1-1h2'/%3E%3Cpath d='M23 12V10a1 1 0 0 0-1-1h-2'/%3E%3Cpath d='M9 20v2a1 1 0 0 0 1 1h2'/%3E%3Cpath d='M23 20v2a1 1 0 0 1-1 1h-2'/%3E%3C/g%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --bg:#FBF6EE; --card:#FFFFFF; --soft:#F3EADC;
+    --ink:#221E18; --sub:#7A7064; --faint:#A89C8C;
+    --line:rgba(34,30,24,0.10); --accent:#EC6A2C; --accentSoft:#FCEADD; --ok:#3E8E6E;
+    --display:"Bricolage Grotesque", system-ui, sans-serif;
+    --body:"Hanken Grotesk", system-ui, sans-serif;
+    --mono:"Space Mono", ui-monospace, monospace;
+    --inset: inset 0 0 0 1.5px var(--line);
+    --maxw: 1080px;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:var(--body); font-size:16px; line-height:1.55;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:hidden;
+  }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; height:auto; display:block; }
+  h1,h2,h3{ font-family:var(--display); font-weight:800; margin:0; letter-spacing:-0.5px; line-height:1.06; }
+  p{ margin:0; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
+  .eyebrow{ font-size:clamp(11px,1.2vw,13px); font-weight:700; letter-spacing:0.4px;
+            text-transform:uppercase; color:var(--accent); font-family:var(--body); }
+
+  /* header */
+  header.site{ position:sticky; top:0; z-index:50; background:rgba(251,246,238,0.82);
+               backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+  .nav{ display:flex; align-items:center; justify-content:space-between; height:72px; gap:16px; }
+  .brand{ display:flex; align-items:center; gap:12px; }
+  .brand .mark{ width:38px; height:38px; border-radius:11px; background:var(--accent);
+                display:flex; align-items:center; justify-content:center; color:#fff; }
+  .brand .mark svg{ width:22px; height:22px; }
+  .wordmark{ font-family:var(--display); font-weight:800; font-size:24px; letter-spacing:-0.5px; }
+  .back{ font-weight:600; font-size:14px; color:var(--sub); box-shadow:var(--inset);
+         height:44px; padding:0 16px; border-radius:14px; display:inline-flex; align-items:center; gap:8px; }
+  .back:hover{ background:var(--soft); }
+
+  /* intro */
+  .intro{ padding:clamp(36px,6vw,64px) 0 8px; }
+  .intro h1{ font-size:clamp(30px,4.6vw,44px); letter-spacing:-1px; margin-top:12px; }
+  .intro .lede{ color:var(--sub); font-size:clamp(15px,1.7vw,18px); margin-top:14px; max-width:60ch; }
+  ol.how{ counter-reset:s; list-style:none; margin:26px 0 0; padding:0; display:grid; gap:12px; max-width:680px; }
+  ol.how li{ position:relative; padding:14px 16px 14px 52px; background:var(--card); border-radius:14px;
+             box-shadow:var(--inset); color:var(--sub); font-size:15px; }
+  ol.how li b{ color:var(--ink); }
+  ol.how li::before{ counter-increment:s; content:counter(s); position:absolute; left:14px; top:13px;
+                     width:24px; height:24px; border-radius:8px; background:var(--accentSoft); color:var(--accent);
+                     font-family:var(--mono); font-weight:700; font-size:13px; display:flex; align-items:center; justify-content:center; }
+
+  /* store context band */
+  .scenes{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:36px; }
+  .scenes figure{ margin:0; border-radius:18px; overflow:hidden; box-shadow:var(--inset), 0 18px 36px -22px rgba(34,30,24,.4); position:relative; }
+  .scenes img{ width:100%; aspect-ratio:16/9; object-fit:cover; }
+  .scenes figcaption{ position:absolute; left:12px; bottom:12px; background:rgba(20,16,11,.62);
+                      color:#fff; font-size:12.5px; font-weight:600; padding:6px 11px; border-radius:999px; backdrop-filter:blur(6px); }
+  @media (max-width:640px){ .scenes{ grid-template-columns:1fr; } }
+
+  /* tags */
+  section.tags{ padding:clamp(40px,6vw,72px) 0 clamp(56px,8vw,96px); }
+  .sec-head h2{ font-size:clamp(24px,3.4vw,34px); letter-spacing:-0.8px; margin-top:12px; }
+  .sec-head p{ color:var(--sub); margin-top:12px; max-width:60ch; }
+  .grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(210px,1fr)); gap:16px; margin-top:30px; }
+
+  /* a price tag is always light + high-contrast so the camera reads it cleanly */
+  .tag{ background:#fff; color:#14233b; border-radius:16px; box-shadow:var(--inset), 0 10px 24px -18px rgba(34,30,24,.5);
+        padding:24px 16px; text-align:center; cursor:pointer; user-select:none; transition:transform .14s ease; }
+  .tag:hover{ transform:translateY(-3px); }
+  .tag .price{ font-family:var(--display); font-weight:800; letter-spacing:-1px; line-height:1; color:#14233b;
+               font-size:clamp(42px,9vw,62px); white-space:nowrap; }
+  .tag .price.long{ font-size:clamp(30px,6.4vw,46px); }
+  .tag .price sup{ font-size:.5em; vertical-align:super; }
+  .tag .unit{ font-family:var(--mono); color:#6b7280; font-size:.86rem; margin-top:8px; }
+  .tag .what{ color:#9aa0a6; font-size:.74rem; margin-top:12px; line-height:1.4; }
+
+  /* lightbox */
+  #box{ position:fixed; inset:0; background:rgba(20,16,11,.84); display:none; align-items:center; justify-content:center;
+        padding:24px; z-index:80; }
+  #box.open{ display:flex; }
+  #box .tag{ cursor:default; width:min(94vw,640px); padding:8vh 24px; }
+  #box .tag .price{ font-size:min(19vw,140px); }
+  #box .tag .price.long{ font-size:min(13vw,92px); }
+  #box .tag .unit{ font-size:1.3rem; margin-top:14px; }
+  #box .tag .what{ display:none; }
+  #box .close{ position:fixed; top:18px; right:22px; color:#fff; font-size:2rem; line-height:1; }
+
+  footer.site{ border-top:1px solid var(--line); padding:36px 0 48px; color:var(--faint); font-size:13.5px; }
+  footer.site a{ color:var(--sub); }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="/" aria-label="Prisio home">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V6a2 2 0 0 1 2-2h2"/><path d="M20 8V6a2 2 0 0 0-2-2h-2"/><path d="M4 16v2a2 2 0 0 0 2 2h2"/><path d="M20 16v2a2 2 0 0 1-2 2h-2"/></svg>
+      </span>
+      <span class="wordmark">Prisio</span>
+    </a>
+    <a class="back" href="/"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> prisio.io</a>
+  </div>
+</header>
+
+<main>
+  <section class="intro">
+    <div class="wrap">
+      <p class="eyebrow">For App Review</p>
+      <h1>Sample price tags — scan without a store.</h1>
+      <p class="lede">Prisio reads the price on the live camera feed and converts it to your home currency
+        (in the US/Canada it also adds local sales tax). You can test it right here — no real shelf needed.</p>
+      <ol class="how">
+        <li><b>Tap a tag</b> below to enlarge it on this screen.</li>
+        <li>In Prisio, <b>point the camera</b> at the enlarged price — it converts automatically (no shutter).</li>
+        <li>To change the destination, open <b>Settings → Region</b> in the app (a <b>US</b> region adds sales tax;
+            a <b>European</b> one shows a tax-inclusive price).</li>
+      </ol>
+
+      <div class="scenes">
+        <figure><img src="assets/store-clothing.png" alt="Clothing store table with folded clothes and a price tag." loading="lazy" />
+          <figcaption>Point Prisio at any shelf tag…</figcaption></figure>
+        <figure><img src="assets/store-aisle.png" alt="Supermarket aisle with a hanging price sign." loading="lazy" />
+          <figcaption>…or an aisle sign like this.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="tags">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Tap to enlarge, then scan</p>
+        <h2>Six tags to try</h2>
+        <p>Rendered as crisp text, so they read cleanly off any screen. Each shows a different case.</p>
+      </div>
+      <div class="grid" id="grid">
+        <div class="tag"><div class="price">$12.99</div><div class="unit">each</div>
+             <div class="what">US price → US region adds sales tax</div></div>
+        <div class="tag"><div class="price">$6<sup>98</sup></div><div class="unit">/ lb</div>
+             <div class="what">US tag with raised "superscript" cents</div></div>
+        <div class="tag"><div class="price">€9,90</div><div class="unit">per stk</div>
+             <div class="what">Euro price → tax-inclusive (no tax added)</div></div>
+        <div class="tag"><div class="price">£4.50</div><div class="unit">each</div>
+             <div class="what">UK price</div></div>
+        <div class="tag"><div class="price long">49,90&nbsp;kr</div><div class="unit">/ st</div>
+             <div class="what">Swedish price</div></div>
+        <div class="tag"><div class="price">¥1280</div><div class="unit">税込</div>
+             <div class="what">Japanese price (no decimals)</div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">This page exists only to make App Review testing easy. Prisio is on-device, no account ·
+    <a href="/">prisio.io</a></div>
+</footer>
+
+<div id="box" aria-hidden="true">
+  <a href="#" class="close" id="close" aria-label="Close">&times;</a>
+  <div id="boxContent"></div>
+</div>
+
+<script>
+  var box = document.getElementById('box');
+  var boxContent = document.getElementById('boxContent');
+  document.getElementById('grid').addEventListener('click', function (e) {
+    var tag = e.target.closest('.tag');
+    if (!tag) return;
+    boxContent.innerHTML = tag.outerHTML;
+    box.classList.add('open');
+    box.setAttribute('aria-hidden', 'false');
+  });
+  function closeBox(e) { if (e) e.preventDefault(); box.classList.remove('open'); box.setAttribute('aria-hidden', 'true'); }
+  document.getElementById('close').addEventListener('click', closeBox);
+  box.addEventListener('click', function (e) { if (e.target === box) closeBox(e); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeBox(); });
+</script>
+</body>
+</html>
