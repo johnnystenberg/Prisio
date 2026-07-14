@@ -7,6 +7,7 @@
 <meta name="description" content="Point your iPhone at any foreign price tag and instantly see what it really costs in your money — local sales tax included. 100% on-device. One-time purchase, no subscription." />
 <link rel="canonical" href="https://prisio.io/" />
 <meta name="theme-color" content="#FBF6EE" />
+<meta name="apple-itunes-app" content="app-id=6778552697" />
 
 <!-- Open Graph / Twitter -->
 <meta property="og:type" content="website" />
@@ -87,6 +88,9 @@
   .appstore{ display:inline-flex; }
   .appstore svg{ height:56px; width:auto; display:block; transition:transform .18s ease; }
   .appstore:hover svg{ transform:translateY(-2px); }
+  /* Android badge: same artwork style, dimmed and inert until the Play listing exists */
+  .appstore.soon{ opacity:.55; cursor:default; }
+  .appstore.soon:hover svg{ transform:none; }
 
   /* icon tile */
   .tile{
@@ -350,7 +354,7 @@
           <li role="option" data-lang="fr">Français <span class="code">FR</span></li>
         </ul>
       </div>
-      <a class="btn btn-primary btn-sm" href="#appstore" data-i18n="nav.download">Download</a>
+      <a class="btn btn-primary btn-sm" href="https://apps.apple.com/app/id6778552697" data-i18n="nav.download">Download</a>
     </div>
   </div>
 </header>
@@ -365,7 +369,7 @@
         <h1 data-i18n-html="hero.h1">See what it <span class="em">really</span> costs.</h1>
         <p class="sub" data-i18n="hero.sub">Point your camera at any foreign price tag. Prisio shows it in your money — with the local sales tax that isn't on the shelf.</p>
         <div class="hero-cta">
-          <a class="appstore" href="#appstore" aria-label="Download Prisio on the App Store">
+          <a class="appstore" href="https://apps.apple.com/app/id6778552697" aria-label="Download Prisio on the App Store">
             <svg viewBox="0 0 180 56" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
               <rect width="180" height="56" rx="12" fill="#221E18"/>
               <g fill="#fff">
@@ -375,6 +379,16 @@
               </g>
             </svg>
           </a>
+          <span class="appstore soon" aria-label="Coming soon to Google Play">
+            <svg viewBox="0 0 180 56" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+              <rect width="180" height="56" rx="12" fill="#221E18"/>
+              <g fill="#fff">
+                <path d="M25 17.6v20.8c0 1.3 1.4 2.1 2.5 1.4l17.8-10.4c1.1-.65 1.1-2.25 0-2.9L27.5 16.2c-1.1-.7-2.5.1-2.5 1.4z"/>
+                <text x="54" y="25" font-family="Helvetica, Arial, sans-serif" font-size="9" fill="#fff" data-i18n="badge.soon">Coming soon to</text>
+                <text x="54" y="42" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#fff">Google Play</text>
+              </g>
+            </svg>
+          </span>
         </div>
         <div class="hero-trust">
           <span class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="trust.ondevice">100% on-device</span></span>
@@ -559,7 +573,7 @@
       </div>
 
       <div class="plan-cta">
-        <a class="btn btn-primary" href="#appstore" data-i18n="plans.cta">Get Prisio</a>
+        <a class="btn btn-primary" href="https://apps.apple.com/app/id6778552697" data-i18n="plans.cta">Get Prisio</a>
         <span class="price-note" data-i18n-html="plans.note">Pro is a one-time <b>$12.99</b>. No subscription, ever.</span>
       </div>
       <p class="brk-note" style="margin-top:14px; font-style:normal;" data-i18n="plans.region">Shown for your region. The App Store always displays your exact local price before you buy.</p>
@@ -605,7 +619,7 @@
       <h2 style="margin-top:14px;" data-i18n="final.h2">Travel knowing the real price.</h2>
       <p data-i18n="final.p">Download Prisio, point your camera, and never guess at a foreign price tag again.</p>
       <div class="badges">
-        <a class="appstore" href="#appstore" aria-label="Download Prisio on the App Store">
+        <a class="appstore" href="https://apps.apple.com/app/id6778552697" aria-label="Download Prisio on the App Store">
           <svg viewBox="0 0 180 56" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
             <rect width="180" height="56" rx="12" fill="#221E18"/>
             <g fill="#fff">
@@ -615,6 +629,16 @@
             </g>
           </svg>
         </a>
+        <span class="appstore soon" aria-label="Coming soon to Google Play">
+          <svg viewBox="0 0 180 56" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <rect width="180" height="56" rx="12" fill="#221E18"/>
+            <g fill="#fff">
+              <path d="M25 17.6v20.8c0 1.3 1.4 2.1 2.5 1.4l17.8-10.4c1.1-.65 1.1-2.25 0-2.9L27.5 16.2c-1.1-.7-2.5.1-2.5 1.4z"/>
+              <text x="54" y="25" font-family="Helvetica, Arial, sans-serif" font-size="9" fill="#fff" data-i18n="badge.soon">Coming soon to</text>
+              <text x="54" y="42" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#fff">Google Play</text>
+            </g>
+          </svg>
+        </span>
         <span class="price-note" style="color:var(--sub); font-size:14px;" data-i18n="final.note">Free to start · Pro is a one-time $12.99</span>
       </div>
     </div>

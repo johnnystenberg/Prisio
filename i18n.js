@@ -12,6 +12,7 @@
     en: {
       "nav.download": "Download",
       "badge.small": "Download on the",
+      "badge.soon": "Coming soon to",
       "hero.eyebrow": "Travel price scanner · iPhone",
       "hero.h1": 'See what it <span class="em">really</span> costs.',
       "hero.sub": "Point your camera at any foreign price tag. Prisio shows it in your money — with the local sales tax that isn't on the shelf.",
@@ -104,6 +105,7 @@
     sv: {
       "nav.download": "Ladda ner",
       "badge.small": "Ladda ner från",
+      "badge.soon": "Snart på",
       "hero.eyebrow": "Reseprisskanner · iPhone",
       "hero.h1": 'Se vad det <span class="em">verkligen</span> kostar.',
       "hero.sub": "Rikta kameran mot vilken prislapp som helst utomlands. Prisio visar priset i dina pengar — med den lokala momsen som inte står på hyllan.",
@@ -196,6 +198,7 @@
     de: {
       "nav.download": "Laden",
       "badge.small": "Laden im",
+      "badge.soon": "Bald bei",
       "hero.eyebrow": "Reise-Preisscanner · iPhone",
       "hero.h1": 'Sieh, was es <span class="em">wirklich</span> kostet.',
       "hero.sub": "Richte die Kamera auf ein beliebiges Preisschild im Ausland. Prisio zeigt den Preis in deinem Geld — inklusive der lokalen Steuer, die nicht im Regal steht.",
@@ -288,6 +291,7 @@
     fr: {
       "nav.download": "Télécharger",
       "badge.small": "Télécharger dans l'",
+      "badge.soon": "Bientôt sur",
       "hero.eyebrow": "Scanner de prix de voyage · iPhone",
       "hero.h1": 'Voyez ce que ça coûte <span class="em">vraiment</span>.',
       "hero.sub": "Pointez l'appareil photo vers n'importe quelle étiquette à l'étranger. Prisio l'affiche dans votre monnaie — avec la taxe locale qui n'est pas indiquée en rayon.",
