@@ -92,6 +92,9 @@
   .tag .price sup{ font-size:.5em; vertical-align:super; }
   .tag .unit{ font-family:var(--mono); color:#6b7280; font-size:.86rem; margin-top:8px; }
   .tag .what{ color:#9aa0a6; font-size:.74rem; margin-top:12px; line-height:1.4; }
+  /* Multi-price grid: scanned as a whole, so the tags aren't tap-to-enlarge. */
+  .grid.multi .tag{ cursor:default; }
+  .grid.multi .tag:hover{ transform:none; }
 
   /* lightbox */
   /* Fully opaque (not translucent): the other tags must not show through, or the
@@ -174,6 +177,28 @@
         <div class="tag"><div class="price">¥1280</div><div class="unit">税込</div>
              <div class="what">Japanese price (no decimals)</div></div>
       </div>
+    </div>
+  </section>
+
+  <section class="tags" style="padding-top:0;">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Multiple prices at once</p>
+        <h2>Test multi-price mode</h2>
+        <p>Switch to <b>Multiple prices</b> in the app, then point the camera at this whole grid and
+          hold steady — Prisio locks a chip on every tag it reads. Don't tap here; scan them all together.</p>
+      </div>
+      <div class="grid multi" id="multiGrid">
+        <div class="tag"><div class="price">$12.99</div><div class="unit">each</div></div>
+        <div class="tag"><div class="price">$7.50</div><div class="unit">each</div></div>
+        <div class="tag"><div class="price">$24.90</div><div class="unit">each</div></div>
+        <div class="tag"><div class="price">$89.00</div><div class="unit">each</div></div>
+        <div class="tag"><div class="price">$3.99</div><div class="unit">each</div></div>
+        <div class="tag"><div class="price">$59.95</div><div class="unit">each</div></div>
+      </div>
+      <p style="color:var(--faint); font-size:13.5px; margin-top:18px;">
+        All one currency and well spaced, so the app can lock several at once. A busy shelf with
+        mixed currencies or per-weight prices will show fewer — that's by design.</p>
     </div>
   </section>
 </main>
