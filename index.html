@@ -172,7 +172,7 @@
     content:""; position:absolute; top:22px; left:50%; transform:translateX(-50%);
     width:96px; height:26px; background:#0e0b08; border-radius:14px; z-index:3;
   }
-  .phone img{ border-radius:36px; width:100%; }
+  .phone img, .phone video{ border-radius:36px; width:100%; height:auto; display:block; }
   .receipt{
     position:absolute; right:-6%; bottom:8%; z-index:5;
     background:var(--card); border-radius:16px; box-shadow:var(--inset), 0 18px 36px -14px rgba(34,30,24,0.35);
@@ -429,7 +429,7 @@
     <div class="wrap how-grid">
       <div class="stage">
         <div class="phone">
-          <img src="assets/screens/scanner.png" loading="lazy" width="740" height="1608" alt="Prisio live scanner pointing at a $29.90 price tag, instantly converted to about 305 kr including local tax." />
+          <video class="phone-video" src="assets/scanner-demo.mp4" poster="assets/screens/scanner-demo.jpg" width="720" height="1560" autoplay muted loop playsinline preload="metadata" aria-label="Prisio live scanner in a Coop store: a 122.09 kr shelf price instantly converted to about 13 US dollars."></video>
         </div>
       </div>
       <div class="how-head">
@@ -722,6 +722,19 @@
       });
     }, { threshold: 0.12 });
     targets.forEach(function(el){ io.observe(el); });
+  })();
+
+  // Demo video: honor reduced-motion (no autoplay → poster + controls), and let a
+  // tap pause/play it (accessibility for looping motion > 5 s).
+  (function(){
+    var v = document.querySelector('.phone-video');
+    if (!v) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      v.removeAttribute('autoplay'); v.setAttribute('controls', '');
+      try { v.pause(); } catch (e) {}
+    }
+    v.style.cursor = 'pointer';
+    v.addEventListener('click', function(){ v.paused ? v.play() : v.pause(); });
   })();
 </script>
     <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "0fe3754be8f04c269f07c94675b0d186"}'></script><!-- End Cloudflare Web Analytics -->
