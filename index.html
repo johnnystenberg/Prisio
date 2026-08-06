@@ -724,17 +724,25 @@
     targets.forEach(function(el){ io.observe(el); });
   })();
 
-  // Demo video: honor reduced-motion (no autoplay → poster + controls), and let a
-  // tap pause/play it (accessibility for looping motion > 5 s).
+  // Demo video: honor reduced-motion (no autoplay → poster + controls); otherwise
+  // drive play/pause from an IntersectionObserver so it reliably starts when the
+  // how-it-works section scrolls into view (below-the-fold `autoplay` alone is
+  // flaky) and stops when it leaves. A tap also pauses/plays it.
   (function(){
     var v = document.querySelector('.phone-video');
     if (!v) return;
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-      v.removeAttribute('autoplay'); v.setAttribute('controls', '');
-      try { v.pause(); } catch (e) {}
-    }
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce){ v.removeAttribute('autoplay'); v.setAttribute('controls', ''); try { v.pause(); } catch (e) {} }
     v.style.cursor = 'pointer';
     v.addEventListener('click', function(){ v.paused ? v.play() : v.pause(); });
+    if (!reduce && 'IntersectionObserver' in window){
+      new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting){ var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+          else { v.pause(); }
+        });
+      }, { threshold: 0.35 }).observe(v);
+    }
   })();
 </script>
     <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "0fe3754be8f04c269f07c94675b0d186"}'></script><!-- End Cloudflare Web Analytics -->
